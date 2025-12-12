@@ -1,10 +1,9 @@
 import React, { Suspense,lazy } from 'react'
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Addform from '../components/form/Addform';
+import Table from '../components/table/Table';
+import Chart from '../components/chart/Chart';
 
-const ExpenseForm=lazy(()=>import ("../components/expenseform/ExpenseForm"))
-const ExpenseList=lazy(()=>import ("../components/expenselist/ExpenseList"))
-const ExpenseSummary=lazy(()=>import ("../components/summary/ExpenseSummary"))
 
 
 const AppRouter = () => {
@@ -13,10 +12,9 @@ const AppRouter = () => {
       <BrowserRouter>
       <Suspense fallback={<h2>LOADING </h2>}>
         <Routes>
-          <Route path="/" element={<ExpenseForm />} />
-          <Route path="/list" element={<ExpenseList />} />
-          <Route path="/data" element={<ExpenseSummary />} />
-         
+          <Route path="/" element={<Addform />} />
+          <Route path="/viewtable" element={<Table />} />
+          <Route path="/viewchart" element={<Chart />} />
         </Routes>
         </Suspense>
       </BrowserRouter>
